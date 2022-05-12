@@ -261,7 +261,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 #sidebar ul.topics ul ul {
     padding-bottom: 0;
 }
-#sidebar ul.topics li.parent ul, #sidebar ul.topics > li.active ul {
+#sidebar ul.topics li.parent > ul {
     display: block;
 }
 #sidebar ul.topics > li > a {
@@ -608,8 +608,6 @@ section.attachments.grey .attachments-files {
 }
 .children-li p {
     font-size: small;
-    font-style: italic;
-
 }
 .children-h2 p, .children-h3 p {
     font-size: small;
