@@ -89,3 +89,33 @@ jQuery(document).ready(function() {
     $(element).parent().replaceWith('<div class="mermaid" align="center">' + content + '</div>');
   });
 });
+
+
+// Source: https://stackoverflow.com/questions/12071254/open-all-external-links-open-in-a-new-tab-apart-from-a-domain
+$(document).ready(function() {
+
+   $("a[href^=http]").each(function(){
+
+      var includes = [
+         'console.aws.amazon.com'
+      ];
+      for(i=0; i<includes.length; i++) {
+         if(this.href.indexOf(includes[i]) == -1) {
+            return true; // continue each() with next link
+         }
+      }
+
+      if(this.href.indexOf(location.hostname) == -1) {
+
+           // attach a do-nothing event handler to ensure we can 'trigger' a click on this link
+           $(this).click(function() { return true; });
+
+           $(this).attr({
+               target: "_blank",
+               title: "Opens in a new window"
+           });
+
+           $(this).click(); // trigger it
+      }
+   })
+});
